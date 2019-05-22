@@ -4,6 +4,7 @@
   "description": "a project for punching data about pokemon into a spreadsheet about pokemon, so we don't have to write all that stuff manually.",
   "main": "index.js",
   "dependencies": {
+    "async": "^3.0.0",
     "dotenv": "^8.0.0",
     "google-spreadsheet": "^2.0.7"
   },

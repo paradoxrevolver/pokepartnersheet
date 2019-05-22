@@ -11,19 +11,29 @@ let accountInfo = require('./ignore/account-info.json');
 let DATA_PATH = './data/';
 let FILE_NAME = 'pokedex.json';
 
+let pokedex;
+let UpdatePokedexFile = function() {
+	fs.writeFile(DATA_PATH + FILE_NAME, JSON.stringify(pokedex, null, 4), (err) => {
+		if(err) console.log('writing pokemon list to file error: ' + err)
+	});
+}
+
 async.series([
 	function FetchPokemonList(step) {
 		p.getPokemonsList().then((response) => {
-			fs.writeFile(DATA_PATH + FILE_NAME, JSON.stringify(response, null, 4), (err) => {
-				if(err) console.log('writing pokemon list to file error: ' + err)
-			});
+			pokedex = response;
+			UpdatePokedexFile();
+			step();
 		}).catch((err) => {
-			console.log('getPokemonsList error: ' + err)
+			console.log('getPokemonsList error: ' + err);
 		});
-		step();
 	},
 	function FetchPokemonSprites(step) {
-		
+		p.resource(pokedex.results.map((pokemon) => { return pokemon.url; })).then(() => {
+			
+		}).catch((err) => {
+			console.log('resource error: ' + err);
+		});
 	},
 	function SetAuth(step) {
 		gs.useServiceAccountAuth(accountInfo, (err) => {

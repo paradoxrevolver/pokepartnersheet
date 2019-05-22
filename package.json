@@ -1,0 +1,24 @@
+{
+  "name": "pokepartnersheet",
+  "version": "1.0.0",
+  "description": "a project for punching data about pokemon into a spreadsheet about pokemon, so we don't have to write all that stuff manually.",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "google-spreadsheet": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paradoxrevolver/pokepartnersheet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paradoxrevolver/pokepartnersheet/issues"
+  },
+  "homepage": "https://github.com/paradoxrevolver/pokepartnersheet#readme"
+}
